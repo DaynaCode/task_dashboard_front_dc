@@ -1,0 +1,11 @@
+services:
+  frontend:
+    build: .
+    restart: unless-stopped
+    environment:
+      VITE_API_URL: ${VITE_API_URL:-http://localhost:5000/api/v1}
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
